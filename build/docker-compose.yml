@@ -1,0 +1,20 @@
+version: "2"
+services:
+  zcash:
+    build:
+      context: .
+      #args:
+       #- DEB_PROXY=http://dockerhost:3142
+    image: ceaser/zcash
+    container_name: zcash
+    hostname: zcash
+    tty: true
+    stdin_open: true
+    ports:
+      - "8233:8233/tcp"
+    volumes:
+      - ./../data:/data
+    logging:
+      options:
+        max-size: "100k"
+        max-file: "2"
